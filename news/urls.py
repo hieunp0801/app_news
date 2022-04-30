@@ -16,9 +16,10 @@ Including another URLconf
 from unicodedata import name
 from django.contrib import admin
 from django.urls import path
-from .views import AddCategoryView,HomeView,DetailPostView
+from .views import CategoryView, HomeView,PostDetail, getContact
 urlpatterns = [
-    path('create-category/',AddCategoryView.as_view(),name = 'add_category'),
-    path('',HomeView.as_view(),name = 'index'),
-    path('post/<int:pk>',DetailPostView.as_view(),name = 'detail')
+    path('',HomeView.as_view(),name = "index"),
+    path('detail-post/<int:pk>',PostDetail.as_view(),name="detail-post"),
+    path('contact',getContact,name = 'contact'),
+    path('category/<slug:slug>',CategoryView.as_view(),name="category")
 ]

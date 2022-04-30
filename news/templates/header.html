@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12 fh5co_mediya_center"><a href="#" class="color_fff fh5co_mediya_setting"><i
-                    class="fa fa-clock-o"></i>&nbsp;&nbsp;&nbsp;Friday, 5 January 2018</a>
+                    class="fa fa-clock-o"></i>&nbsp;&nbsp;&nbsp;{{dateNow}}</a>
                 <div class="d-inline-block fh5co_trading_posotion_relative"><a href="#" class="treding_btn">Trending</a>
                     <div class="fh5co_treding_position_absolute"></div>
                 </div>
@@ -16,7 +16,9 @@
     <div class="container">
         <div class="row">
             <div class="col-12 col-md-3 fh5co_padding_menu">
-                <img src="{% static 'images/logo.png' %}" alt="img" class="fh5co_logo_width"/>
+                <a href="/">
+                    <img src="{% static 'images/logo.png' %}" alt="img" class="fh5co_logo_width"/>
+                </a>         
             </div>
             <div class="col-12 col-md-9 align-self-center fh5co_mediya_right">
                 <div class="text-center d-inline-block">
@@ -38,9 +40,7 @@
                 <div class="d-inline-block text-center dd_position_relative ">
                     <select class="form-control fh5co_text_select_option">
                         <option>English </option>
-                        <option>French </option>
-                        <option>German </option>
-                        <option>Spanish </option>
+                        <option>Vietnamese </option>
                     </select>
                 </div>
                 <div class="clearfix"></div>
@@ -58,34 +58,19 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item ">
-                        <a class="nav-link" href="blog.html">Blog <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item ">
-                        <a class="nav-link" href="single.html">Single <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuButton2" data-toggle="dropdown"
-                           aria-haspopup="true" aria-expanded="false">World <span class="sr-only">(current)</span></a>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink_1">
-                            <a class="dropdown-item" href="#">Action in</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuButton3" data-toggle="dropdown"
-                           aria-haspopup="true" aria-expanded="false">Community<span class="sr-only">(current)</span></a>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink_1">
-                            <a class="dropdown-item" href="#">Action in</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
+                           aria-haspopup="true" aria-expanded="false">Category <span class="sr-only">(current)</span></a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink_1" style="z-index: 99999999;">
+                            {% for cat in categories %}
+                            <a class="dropdown-item" href="{% url 'category' cat.slug %}">{{cat.name}}</a>
+                            {% endfor %}
                         </div>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link" href="Contact_us.html">Contact <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="{% url 'contact' %}">Contact <span class="sr-only">(current)</span></a>
                     </li>
                 </ul>
             </div>

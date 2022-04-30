@@ -28,14 +28,9 @@
             <div class="col-12 col-md-3 col-lg-2">
                 <div class="footer_main_title py-3"> Category</div>
                 <ul class="footer_menu">
-                    <li><a href="#" class=""><i class="fa fa-angle-right"></i>&nbsp;&nbsp; Business</a></li>
-                    <li><a href="#" class=""><i class="fa fa-angle-right"></i>&nbsp;&nbsp; Entertainment</a></li>
-                    <li><a href="#" class=""><i class="fa fa-angle-right"></i>&nbsp;&nbsp; Environment</a></li>
-                    <li><a href="#" class=""><i class="fa fa-angle-right"></i>&nbsp;&nbsp; Health</a></li>
-                    <li><a href="#" class=""><i class="fa fa-angle-right"></i>&nbsp;&nbsp; Life style</a></li>
-                    <li><a href="#" class=""><i class="fa fa-angle-right"></i>&nbsp;&nbsp; Politics</a></li>
-                    <li><a href="#" class=""><i class="fa fa-angle-right"></i>&nbsp;&nbsp; Technology</a></li>
-                    <li><a href="#" class=""><i class="fa fa-angle-right"></i>&nbsp;&nbsp; World</a></li>
+                    {% for category in categories %}
+                    <li><a href="{% url 'category' category.slug %}" class=""><i class="fa fa-angle-right"></i>&nbsp;&nbsp; {{category.name}}</a></li>
+                    {% endfor %}
                 </ul>
             </div>
             <div class="col-12 col-md-5 col-lg-3 position_footer_relative">
@@ -48,7 +43,7 @@
                 <a href="#" class="footer_post pb-4"> Success is not a good teacher failure makes you humble </a>
                 <div class="footer_position_absolute"><img src="{% static 'images/footer_sub_tipik.png' %}" alt="img" class="width_footer_sub_img"/></div>
             </div>
-            <div class="col-12 col-md-12 col-lg-4 ">
+            <!-- <div class="col-12 col-md-12 col-lg-4 ">
                 <div class="footer_main_title py-3"> Last Modified Posts</div>
                 <a href="#" class="footer_img_post_6"><img src="{% static 'images/allef-vinicius-108153.jpg' %}" alt="img"/></a>
                 <a href="#" class="footer_img_post_6"><img src="{% static 'images/32-450x260.jpg' %}" alt="img"/></a>
@@ -59,7 +54,7 @@
                 <a href="#" class="footer_img_post_6"><img src="{% static 'images/download.jpg' %}" alt="img"/></a>
                 <a href="#" class="footer_img_post_6"><img src="{% static 'images/download (2).jpg' %}" alt="img"/></a>
                 <a href="#" class="footer_img_post_6"><img src="{% static 'images/ryan-moreno-98837.jpg' %}" alt="img"/></a>
-            </div>
+            </div> -->
         </div>
         <div class="row justify-content-center pt-2 pb-4">
             <div class="col-12 col-md-8 col-lg-7 ">
@@ -78,9 +73,7 @@
             <div class="col-12 col-md-6 py-4 Reserved"> © Copyright 2018, All rights reserved. Design by <a href="https://freehtml5.co" title="Free HTML5 Bootstrap templates">FreeHTML5.co</a>. </div>
             <div class="col-12 col-md-6 spdp_right py-4">
                 <a href="#" class="footer_last_part_menu">Home</a>
-                <a href="Contact_us.html" class="footer_last_part_menu">About</a>
-                <a href="Contact_us.html" class="footer_last_part_menu">Contact</a>
-                <a href="blog.html" class="footer_last_part_menu">Latest News</a></div>
+                <a href="{% url 'contact' %}" class="footer_last_part_menu">Contact</a>
         </div>
     </div>
 </div>
