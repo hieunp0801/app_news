@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block title %}
-    Home
+    {{category_name}}
 {% endblock %}
 
 {% block style %}
@@ -41,10 +41,10 @@
                     <div class="col-md-7 animate-box">
                         <a href="{% url 'detail-post' post.pk %}" class="fh5co_magna py-2"> {{post.title}} </a> 
                         <br>
-                        <a href="{% url 'detail-post' post.pk %}" class="fh5co_mini_time py-3"> {{post.author.username}} -
-                        April 18,2016 </a>
-                        <div class="fh5co_consectetur"> Amet consectetur adipisicing elit, sed do eiusmod tempor incididunt
-                            ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
+                        <a href="{% url 'detail-post' post.pk %}" class="fh5co_mini_time py-3"> {{ post.author.first_name }} {{post.author.last_name}} -
+                        {{post.created_date_format}} </a>
+                        <div class="fh5co_consectetur text-full"> 
+                            {{post.text}}
                         </div>
                     </div>
                 </div>
@@ -57,7 +57,7 @@
                 
                 
                 {% if posts.has_previous %}
-                    <a href="?page={{ pposts.previous_page_number }}" class="btn_mange_pagging"><i class="fa fa-long-arrow-left"></i>&nbsp;&nbsp; Previous</a>
+                    <a href="?page={{ pposts.previous_page_number }}" class="btn_mange_pagging"><i class="fa fa-long-arrow-left"></i>&nbsp;&nbsp; Trang trước</a>
                 {% else %}
         
                 {% endif %}
@@ -69,7 +69,7 @@
                     {% endif %}
                 {% endfor %}
                 {% if posts.has_next %}
-                    <a href="?page={{ pposts.next_page_number }}" class="btn_mange_pagging">Next <i class="fa fa-long-arrow-right"></i>&nbsp;&nbsp; </a>
+                    <a href="?page={{ pposts.next_page_number }}" class="btn_mange_pagging">Trang sau <i class="fa fa-long-arrow-right"></i>&nbsp;&nbsp; </a>
                 {% else %}
                 
                 {% endif %}

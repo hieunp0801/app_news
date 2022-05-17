@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block title %}
-    Detail News
+    {{post.title}}
 {% endblock %}
 
 {% block style %}
@@ -27,7 +27,7 @@
     <div class="overlay"></div>
     <div class="page-title">
         <!-- <img src="{% static 'images/person_1.jpg' %}" alt="Free HTML5 by FreeHTMl5.co"> -->
-        <span>{{post.created_date}}</span>
+        <span>{{post.created_date_format}}</span>
         <h2>{{post.title}}</h2>
     </div>
 </div>
@@ -46,7 +46,6 @@
                 <div class="clearfix"></div>
                 {% if tags %}
                     <div class="fh5co_tags_all">
-                        <a href="#" class="fh5co_tagg">Business</a>
                         {% for tag in tags %}
                             <a href="#" class="fh5co_tagg">{{tag.name}}</a>
                         {% endfor %}
@@ -64,7 +63,7 @@
                         <div class="most_fh5co_treding_font">
                             <a href="{%  url 'detail-post' post.pk %}" class="fh5co_magna py-2">{{post.title}}</a>
                         </div>
-                        <div class="most_fh5co_treding_font_123"> {{post.created_date}}</div>
+                        <div class="most_fh5co_treding_font_123"> {{post.created_date_format}}</div>
                     </div>
                 </div>
                 {% endfor %}
@@ -84,7 +83,7 @@
                     <div class="fh5co_news_img"><img src="{{post.feature_image.url}}" alt=""/></div>
                     <div>
                         <a href="#" class="d-block fh5co_small_post_heading"><span class="">{{post.title}}</span></a>
-                        <div class="c_g"><i class="fa fa-clock-o"></i>{{post.created_date}}</div>
+                        <div class="c_g"><i class="fa fa-clock-o"></i>{{post.created_date_format}}</div>
                     </div>
                 </div>
             </div>
